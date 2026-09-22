@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ご注文ありがとうございます | 陶雅</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/config.js"></script>
+<script src="js/analytics.js"></script>
+</head>
+<body>
+<div class="simple-page">
+  <h1>ご注文ありがとうございます</h1>
+  <p>正方形サイズ(100mm×100mm / 税込¥77,000)のご決済が完了しました。</p>
+
+  <div class="notice-box">
+    最後にもう1ステップです。下記フォームより、大切な子のお写真とご要望をお送りください。<br>
+    フォームのご提出をもってご注文確定となり、制作を開始いたします(納期の目安:約3週間〜1ヶ月)。
+  </div>
+
+  <p style="text-align:center; margin:32px 0;">
+    <a class="btn btn-primary" id="order-form-link" href="#" target="_blank" rel="noopener">お写真・ご要望を提出する</a>
+  </p>
+
+  <p>ご不明点がございましたら <a href="mailto:info@bhargo.co.jp">info@bhargo.co.jp</a> までお気軽にご連絡ください。</p>
+  <p><a href="index.html">&larr; トップページに戻る</a></p>
+</div>
+
+<script>
+  (function () {
+    var cfg = window.TOGA_CONFIG || {};
+    var link = document.getElementById('order-form-link');
+    if (link) link.href = cfg.ORDER_FORM_URL || '#';
+
+    var isConfigured = function (v) { return !!v && v.indexOf('XXXX') === -1; };
+    if (window.gtag && isConfigured(cfg.GOOGLE_ADS_CONVERSION_ID) && isConfigured(cfg.CONVERSION_LABEL_SQUARE)) {
+      window.gtag('event', 'conversion', {
+        send_to: cfg.GOOGLE_ADS_CONVERSION_ID + '/' + cfg.CONVERSION_LABEL_SQUARE,
+        value: (cfg.PRICE && cfg.PRICE.SQUARE_TAX_INCLUDED) || 77000,
+        currency: 'JPY'
+      });
+    }
+    if (window.gtag) {
+      window.gtag('event', 'purchase', {
+        currency: 'JPY',
+        value: (cfg.PRICE && cfg.PRICE.SQUARE_TAX_INCLUDED) || 77000,
+        items: [{ item_name: '陶雅_正方形' }]
+      });
+    }
+  })();
+</script>
+</body>
+</html>
