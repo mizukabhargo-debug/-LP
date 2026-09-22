@@ -23,8 +23,8 @@ window.TOGA_CONFIG = {
   STRIPE_LINK_SQUARE: 'https://buy.stripe.com/aFa7sE1IG5DebxAemG6J201', // 正方形 ¥77,000
   STRIPE_LINK_RECT: 'https://buy.stripe.com/28EdR21IG9TufNQdiC6J200',   // 長方形 ¥143,000
 
-  // 決済完了後のお写真・ご要望提出フォーム(既存のGoogleフォームをそのまま使用)
-  ORDER_FORM_URL: 'https://forms.gle/RnYq4Eo87LnN5Ug79',
+  // 決済完了後のお写真・ご要望提出フォーム
+  ORDER_FORM_URL: 'https://forms.gle/ZQbJrZpRBnLcM4pb7',
 
   // お問い合わせ先メールアドレス
   CONTACT_EMAIL: 'info@bhargo.co.jp',
