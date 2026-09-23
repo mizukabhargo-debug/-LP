@@ -23,7 +23,7 @@ body {
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 .container {
   max-width: var(--container);
