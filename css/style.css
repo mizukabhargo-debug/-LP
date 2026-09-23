@@ -433,3 +433,50 @@ h2 { letter-spacing: 0.04em; }
 .site-footer { background: #171614; color: #cbc4b8; }
 .site-footer a { color: #cbc4b8; }
 .site-footer__bottom { border-top-color: #2e2b27; color: #8d867a; }
+
+/* ===== トップ（全幅ヒーロー） ===== */
+.hero--full {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+.hero--full .hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+}
+.hero--full::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(247, 245, 241, 0.94) 0%, rgba(247, 245, 241, 0.8) 36%, rgba(247, 245, 241, 0) 60%);
+}
+.hero--full .hero__inner {
+  position: relative;
+  z-index: 2;
+  min-height: clamp(520px, 78vh, 760px);
+  display: flex;
+  align-items: center;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+.hero--full .hero__copy { max-width: 500px; }
+@media (max-width: 860px) {
+  .hero--full .hero__bg {
+    position: static;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-position: 80% center;
+  }
+  .hero--full::before { display: none; }
+  .hero--full .hero__inner {
+    min-height: 0;
+    padding-top: 32px;
+    padding-bottom: 44px;
+  }
+}
