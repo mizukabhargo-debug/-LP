@@ -93,8 +93,8 @@
 
 ### 表示URL・リンク先URL
 
-- リンク先URL: LP公開後のトップページURL(例: `https://mizukabhargo-debug.github.io/-LP/`)+ 計測用UTMパラメータ
-  - 例: `https://mizukabhargo-debug.github.io/-LP/?utm_source=google&utm_medium=cpc&utm_campaign=toga_search`
+- リンク先URL: LP公開後のトップページURL(例: `https://toga-ceramic-paint.github.io/`)+ 計測用UTMパラメータ
+  - 例: `https://toga-ceramic-paint.github.io/?utm_source=google&utm_medium=cpc&utm_campaign=toga_search`
   - ※Google広告の自動タグ設定(gclid)を有効にしていればUTMがなくてもGA4側で計測可能ですが、念のため両方設定することを推奨します。
 
 ### サイトリンク表示オプション(任意・推奨)
