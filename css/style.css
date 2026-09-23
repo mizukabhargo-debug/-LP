@@ -1,11 +1,12 @@
 :root {
-  --color-bg: #fbf6ef;
-  --color-bg-alt: #f3ead9;
-  --color-text: #2e2a25;
-  --color-text-muted: #6b6156;
-  --color-accent: #b5563c;
-  --color-accent-dark: #8f3f2a;
-  --color-line: #e4d8c4;
+  --color-bg: #f7f5f1;
+  --color-bg-alt: #edeae4;
+  --color-text: #1f1d1b;
+  --color-text-muted: #5b5750;
+  --color-accent: #2b2826;
+  --color-accent-dark: #7a5f38;
+  --color-gold: #a88a5c;
+  --color-line: #dcd6cc;
   --color-white: #ffffff;
   --font-serif: 'Noto Serif JP', serif;
   --font-sans: 'Noto Sans JP', sans-serif;
@@ -391,3 +392,44 @@ section { padding: 72px 0; }
   .nav.is-open { display: flex; }
   .site-footer__grid { flex-direction: column; }
 }
+
+/* ===== シック配色の調整（2026-09-23） ===== */
+.site-header { background: rgba(247, 245, 241, 0.94); }
+.nav a:hover { color: var(--color-accent-dark); }
+h2 { letter-spacing: 0.04em; }
+.btn {
+  border-radius: 2px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.btn-outline {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+.hero__eyebrow {
+  border-color: var(--color-gold);
+  border-radius: 2px;
+}
+.section-head .eyebrow { letter-spacing: 0.3em; }
+.price-card {
+  border-radius: 3px;
+  border-top: 2px solid var(--color-gold);
+}
+.price-card__amount {
+  color: var(--color-text);
+  font-family: var(--font-serif);
+}
+.step__num {
+  background: transparent;
+  color: var(--color-accent-dark);
+  border: 1px solid var(--color-gold);
+}
+.faq-item dt::before { color: var(--color-accent-dark); }
+.cta-band { background: #1f1d1b; }
+.cta-band .btn-outline {
+  border-color: var(--color-gold);
+  color: #fff;
+}
+.site-footer { background: #171614; color: #cbc4b8; }
+.site-footer a { color: #cbc4b8; }
+.site-footer__bottom { border-top-color: #2e2b27; color: #8d867a; }
