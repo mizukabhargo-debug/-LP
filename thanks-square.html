@@ -34,20 +34,40 @@
     var link = document.getElementById('order-form-link');
     if (link) link.href = cfg.ORDER_FORM_URL || '#';
 
+    // 計測の重複防止:Stripeから渡される決済ID(session_id)がある時だけ、1決済につき1回だけ計測する
+    var params = new URLSearchParams(window.location.search);
+    var sessionId = params.get('session_id') || '';
+    var isValidSession = /^cs_(live|test)_[A-Za-z0-9]+$/.test(sessionId);
+    var storageKey = 'toga_tracked_' + sessionId;
+    var alreadyTracked = false;
+    try { alreadyTracked = window.localStorage.getItem(storageKey) === '1'; } catch (e) {}
+
+    var value = (cfg.PRICE && cfg.PRICE.SQUARE_TAX_INCLUDED) || 77000;
     var isConfigured = function (v) { return !!v && v.indexOf('XXXX') === -1; };
-    if (window.gtag && isConfigured(cfg.GOOGLE_ADS_CONVERSION_ID) && isConfigured(cfg.CONVERSION_LABEL_SQUARE)) {
-      window.gtag('event', 'conversion', {
-        send_to: cfg.GOOGLE_ADS_CONVERSION_ID + '/' + cfg.CONVERSION_LABEL_SQUARE,
-        value: (cfg.PRICE && cfg.PRICE.SQUARE_TAX_INCLUDED) || 77000,
-        currency: 'JPY'
-      });
-    }
-    if (window.gtag) {
+
+    if (window.gtag && isValidSession && !alreadyTracked) {
+      if (isConfigured(cfg.GOOGLE_ADS_CONVERSION_ID) && isConfigured(cfg.CONVERSION_LABEL_SQUARE)) {
+        window.gtag('event', 'conversion', {
+          send_to: cfg.GOOGLE_ADS_CONVERSION_ID + '/' + cfg.CONVERSION_LABEL_SQUARE,
+          value: value,
+          currency: 'JPY',
+          transaction_id: sessionId
+        });
+      }
       window.gtag('event', 'purchase', {
+        transaction_id: sessionId,
         currency: 'JPY',
-        value: (cfg.PRICE && cfg.PRICE.SQUARE_TAX_INCLUDED) || 77000,
+        value: value,
         items: [{ item_name: '陶雅_正方形' }]
       });
+      try { window.localStorage.setItem(storageKey, '1'); } catch (e) {}
+    }
+
+    // 決済IDをアドレスバーから消す(再読み込み・URL共有での再計測を防ぐ)
+    if (sessionId && window.history && window.history.replaceState) {
+      params.delete('session_id');
+      var query = params.toString();
+      window.history.replaceState(null, '', window.location.pathname + (query ? '?' + query : '') + window.location.hash);
     }
   })();
 </script>
