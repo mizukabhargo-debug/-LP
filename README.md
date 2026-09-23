@@ -24,7 +24,7 @@ marketing/ads-plan.md Google広告キャンペーン設計書(そのまま広告
 
 1. このリポジトリの GitHub 画面 → `Settings` → `Pages`
 2. `Source` を `Deploy from a branch` にし、ブランチを `main`(または本ブランチをmainにマージ後)、フォルダを `/ (root)` に設定して保存
-3. 数分後に `https://mizukabhargo-debug.github.io/-LP/` で公開されます
+3. 数分後に `https://toga-ceramic-paint.github.io/` で公開されます
 4. 将来的に独自ドメインを使う場合は、同じPages設定画面の「Custom domain」で設定できます
 
 ### 2. Stripe決済リンクの作成(2つ)
