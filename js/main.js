@@ -59,8 +59,9 @@
 
 // 作品画像の拡大表示（ライトボックス）
 (function () {
-  var items = [].slice.call(document.querySelectorAll('.gallery__item'));
-  if (!items.length) return;
+  var all = [].slice.call(document.querySelectorAll('.gallery__item'));
+  if (!all.length) return;
+  var items = all;
 
   var box = document.createElement('div');
   box.className = 'lightbox';
@@ -89,6 +90,7 @@
     img.src = item.getAttribute('data-full') || thumb.src;
     img.alt = thumb.alt;
     count.textContent = (current + 1) + ' / ' + items.length;
+    box.classList.toggle('lightbox--single', items.length < 2);
   }
   function open(i) {
     lastFocus = document.activeElement;
@@ -104,8 +106,13 @@
     if (lastFocus) lastFocus.focus();
   }
 
-  items.forEach(function (item, i) {
-    item.addEventListener('click', function () { open(i); });
+  // data-group が同じ画像どうしで前後に移動する（未指定は作品ギャラリー）
+  all.forEach(function (item) {
+    item.addEventListener('click', function () {
+      var group = item.getAttribute('data-group') || 'gallery';
+      items = all.filter(function (el) { return (el.getAttribute('data-group') || 'gallery') === group; });
+      open(items.indexOf(item));
+    });
   });
   closeBtn.addEventListener('click', close);
   box.querySelector('.lightbox__prev').addEventListener('click', function () { show(current - 1); });
