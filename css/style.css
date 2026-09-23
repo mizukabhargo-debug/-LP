@@ -564,6 +564,7 @@ body.is-lightbox-open { overflow: hidden; }
 
 /* ===== 料金カードのサイズイメージ画像 ===== */
 .price-card__photo { width: 100%; margin: 0 0 6px; }
+.price-card__photo::after { top: 8px; bottom: auto; }
 .price-card__img {
   display: block;
   width: 100%;
