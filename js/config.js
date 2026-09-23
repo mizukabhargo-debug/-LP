@@ -8,7 +8,7 @@
 window.TOGA_CONFIG = {
   // GA4 測定ID (例: G-ABC1234567)
   // 取得方法: Google アナリティクス管理画面 > プロパティ設定 > データストリーム > ウェブ
-  GA4_MEASUREMENT_ID: '   GA4_MEASUREMENT_ID: 'G-VP9KR657KK',', // 要設定
+  GA4_MEASUREMENT_ID: 'G-VP9KR657KK',
 
   // Google広告 コンバージョンID (例: AW-123456789)
   // 取得方法: Google広告管理画面 > ツールと設定 > コンバージョン > 新しいコンバージョン
