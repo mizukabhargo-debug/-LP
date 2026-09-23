@@ -216,6 +216,14 @@ section { padding: 72px 0; }
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
+.gallery__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
 
 /* 料金カード */
 .pricing__grid {
