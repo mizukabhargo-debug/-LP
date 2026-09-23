@@ -561,3 +561,21 @@ body.is-lightbox-open { overflow: hidden; }
   .lightbox { padding: 56px 0 60px; }
   .lightbox__nav { top: auto; bottom: 4px; transform: none; height: 52px; }
 }
+
+/* ===== 料金カードのサイズイメージ画像 ===== */
+.price-card__photo { width: 100%; margin: 0 0 6px; }
+.price-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.price-card__photo-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-dark);
+  margin: 0 0 20px;
+}
+.lightbox--single .lightbox__nav,
+.lightbox--single .lightbox__count { display: none; }
