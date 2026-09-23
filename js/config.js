@@ -12,11 +12,9 @@ window.TOGA_CONFIG = {
 
   // Google広告 コンバージョンID (例: AW-123456789)
   // 取得方法: Google広告管理画面 > ツールと設定 > コンバージョン > 新しいコンバージョン
-  GOOGLE_ADS_CONVERSION_ID: 'AW-XXXXXXXXX', // 要設定
-
-  // サイズ別コンバージョンラベル(Google広告のコンバージョンアクション作成時に発行される)
-  CONVERSION_LABEL_SQUARE: 'XXXXXXXXXX', // 要設定(正方形 ¥77,000 税込 購入時)
-  CONVERSION_LABEL_RECT: 'XXXXXXXXXX',   // 要設定(長方形 ¥143,000 税込 購入時)
+ GOOGLE_ADS_CONVERSION_ID: 'AW-18468890279',
+CONVERSION_LABEL_SQUARE: 'eJTJCNuI4oEdEKfN0-ZE', // 正方形 ¥77,000 税込 購入時
+CONVERSION_LABEL_RECT: 'aUdpCN6I4oEdEKfN0-ZE',   // 長方形 ¥143,000 税込 購入時
 
   // Stripe Payment Link(Stripeダッシュボード > 決済リンク で作成)
   // 作成手順は README.md の「Stripe決済リンクの作成」を参照
